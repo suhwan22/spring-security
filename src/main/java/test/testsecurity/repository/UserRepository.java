@@ -10,4 +10,5 @@ public interface UserRepository {
 	public UserEntity findById(Long id);
 	public UserEntity findByName(String name);
 	public List<UserEntity> findUsers();
+	public boolean isExistUsername(String username);
 }

@@ -23,7 +23,11 @@ public class JoinService {
 	 */
 	public void joinProcess(JoinDto joinDto) {
 
-		// 중복 이름 체크 로직 추가될 예정
+		boolean isExist = userRepository.isExistUsername(joinDto.getUsername());
+		if (isExist) {
+			System.out.println("JoinService.joinProcess: username already exists");
+			return ;
+		}
 
 		UserEntity userEntity = new UserEntity();
 

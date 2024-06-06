@@ -2,15 +2,20 @@ package test.testsecurity.repository;
 
 import test.testsecurity.entity.UserEntity;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MemoryUserRepository implements UserRepository{
 
 	Map<Long, UserEntity> store = new HashMap<>();
 	long sequence = 0L;
+
+	public boolean isExistUsername(String username) {
+		Optional<UserEntity> userEntity = store.values().stream()
+				.filter((user) -> user.getUsername().equals(username))
+				.findAny();
+
+		return userEntity.isPresent();
+	}
 
 	@Override
 	public void save(UserEntity userEntity) {
