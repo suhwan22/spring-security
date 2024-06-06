@@ -35,6 +35,12 @@ public class SecurityConfig {
 				);
 
 		http
+				.logout((auth) -> auth
+						.logoutUrl("/logout")
+						.logoutSuccessUrl("/")
+				);
+
+		http
 				.sessionManagement((session) -> session
 						.sessionFixation((sessionFixation) -> sessionFixation
 								.changeSessionId()
@@ -46,9 +52,6 @@ public class SecurityConfig {
 						.maximumSessions(1)
 						.maxSessionsPreventsLogin(true)
 				);
-
-//		http
-//				.csrf((auth) -> auth.disable());
 
 		return http.build();
 	}
