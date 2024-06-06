@@ -11,4 +11,9 @@ public class UserEntity {
 	private String username;
 	private String password;
 	private String role;
+
+	@Override
+	public String toString() {
+		return  "[id: " + id + ",username: " + username + ", password: " + password + ", role: " + role + "]";
+	}
 }

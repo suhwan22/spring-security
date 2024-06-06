@@ -1,9 +1,11 @@
 package test.testsecurity.repository;
 
+import org.springframework.stereotype.Repository;
 import test.testsecurity.entity.UserEntity;
 
 import java.util.*;
 
+@Repository
 public class MemoryUserRepository implements UserRepository{
 
 	Map<Long, UserEntity> store = new HashMap<>();

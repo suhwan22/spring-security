@@ -16,7 +16,8 @@ public class JoinService {
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	private final UserRepository userRepository = new MemoryUserRepository();
+	@Autowired
+	private UserRepository userRepository;
 
 	/**
 	 * 회원가입 로직
