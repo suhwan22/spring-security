@@ -47,8 +47,8 @@ public class SecurityConfig {
 						.maxSessionsPreventsLogin(true)
 				);
 
-		http
-				.csrf((auth) -> auth.disable());
+//		http
+//				.csrf((auth) -> auth.disable());
 
 		return http.build();
 	}
